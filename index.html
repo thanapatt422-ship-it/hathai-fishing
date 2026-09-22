@@ -3,183 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หทัยฟิชชิ่ง - อุปกรณ์ตกปลา</title>
+
+<title>หทัยฟิชชิ่ง | อุปกรณ์ตกปลา</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#f5f8f6;
-    color:#17352a;
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f6;
+    color: #17352a;
 }
 
-header{
-    background:#0b4d35;
-    color:white;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* HEADER */
+header {
+    background: #064d35;
+    color: white;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
+.logo {
+    font-size: 25px;
+    font-weight: bold;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 12px;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
 }
 
-.cart{
-    background:#f28c38;
-    padding:10px 15px;
-    border-radius:10px;
+nav a:hover {
+    color: #ffd166;
 }
 
-.hero{
-    min-height:430px;
-    background:linear-gradient(135deg,#0b4d35,#16845a);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:50px 20px;
+.cart {
+    background: #f28c38;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-.hero h1{
-    font-size:50px;
-    margin-bottom:15px;
+/* HERO */
+.hero {
+    min-height: 450px;
+    background:
+        linear-gradient(rgba(0,70,45,.75), rgba(0,70,45,.75)),
+        url("shop.jpg") center/cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
 }
 
-.hero p{
-    font-size:19px;
-    margin-bottom:25px;
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
 }
 
-.btn{
-    display:inline-block;
-    background:#f28c38;
-    color:white;
-    padding:13px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
+.hero p {
+    font-size: 21px;
+    margin-bottom: 28px;
 }
 
-section{
-    padding:60px 7%;
+.btn {
+    display: inline-block;
+    background: #f28c38;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-.title{
-    text-align:center;
-    margin-bottom:35px;
+.btn:hover {
+    background: #ff9f50;
 }
 
-.title h2{
-    font-size:32px;
-    margin-bottom:8px;
+/* SECTION */
+section {
+    padding: 60px 6%;
 }
 
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+.title {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px #0001;
-    transition:.2s;
+.title h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.title p {
+    color: #666;
 }
 
-.product-img{
-    height:200px;
-    background:#dcefe5;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:75px;
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-.info{
-    padding:18px;
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.10);
+    transition: .3s;
 }
 
-.info h3{
-    margin-bottom:8px;
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 
-.price{
-    color:#087447;
-    font-size:21px;
-    font-weight:bold;
-    margin:12px 0;
+.product-img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
 }
 
-.add{
-    width:100%;
-    border:0;
-    background:#0b4d35;
-    color:white;
-    padding:11px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:15px;
+.info {
+    padding: 20px;
 }
 
-.add:hover{
-    background:#16845a;
+.info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
-.about{
-    background:white;
-    text-align:center;
+.info p {
+    color: #666;
+    min-height: 40px;
 }
 
-.contact{
-    background:#e8f3ed;
-    text-align:center;
+.price {
+    color: #078047;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
-footer{
-    background:#082d20;
-    color:white;
-    text-align:center;
-    padding:25px;
+.add {
+    width: 100%;
+    border: none;
+    background: #064d35;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-@media(max-width:900px){
-    .products{
-        grid-template-columns:repeat(2,1fr);
+.add:hover {
+    background: #087a53;
+}
+
+/* ABOUT */
+.about {
+    background: white;
+    text-align: center;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* CONTACT */
+.contact {
+    background: #e4f2eb;
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px;
+    font-size: 17px;
+}
+
+/* FOOTER */
+footer {
+    background: #063326;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    nav{
-        display:none;
+    nav {
+        display: none;
     }
 }
 
-@media(max-width:550px){
-    .products{
-        grid-template-columns:1fr;
+@media (max-width: 550px) {
+
+    .products {
+        grid-template-columns: 1fr;
     }
 
-    .hero h1{
-        font-size:36px;
+    .hero h1 {
+        font-size: 38px;
     }
 }
 </style>
@@ -187,8 +236,12 @@ footer{
 
 <body>
 
+<!-- HEADER -->
 <header>
-    <div class="logo">🎣 หทัยฟิชชิ่ง</div>
+
+    <div class="logo">
+        🎣 หทัยฟิชชิ่ง
+    </div>
 
     <nav>
         <a href="#home">หน้าแรก</a>
@@ -198,113 +251,298 @@ footer{
     </nav>
 
     <div class="cart">
-        🛒 ตะกร้า <span id="count">0</span>
+        🛒 ตะกร้า <span id="cartCount">0</span>
     </div>
+
 </header>
 
+
+<!-- HERO -->
 <section class="hero" id="home">
+
     <div>
-        <img src="shop.jpg" alt="หน้าร้านหทัยฟิชชิ่ง" class="shop-image">
-        <h1>🎣 หทัยฟิชชิ่ง</h1>
-        <p>อุปกรณ์ตกปลาคุณภาพ ครบ จบ ในที่เดียว</p>
-        <a href="#products" class="btn">เลือกซื้อสินค้า</a>
+
+        <h1>หทัยฟิชชิ่ง</h1>
+
+        <p>
+            อุปกรณ์ตกปลาคุณภาพ
+            สำหรับนักตกปลาทุกระดับ
+        </p>
+
+        <a href="#products" class="btn">
+            🛒 เลือกซื้อสินค้า
+        </a>
+
     </div>
+
 </section>
 
+
+<!-- PRODUCTS -->
 <section id="products">
 
     <div class="title">
-        <h2>สินค้าของเรา</h2>
-        <p>อุปกรณ์ตกปลาสำหรับมือใหม่และนักตกปลาทุกระดับ</p>
+
+        <h2>🎣 สินค้าของเรา</h2>
+
+        <p>
+            อุปกรณ์ตกปลาคุณภาพ ราคาคุ้มค่า
+        </p>
+
     </div>
+
 
     <div class="products">
 
+
+        <!-- PRODUCT 1 -->
         <div class="card">
-            <div class="product-img">
-                <img src="rod.jpg" alt="คันเบ็ด Carbon Pro">
-</div>
+
+            <img
+                src="rod.jpg"
+                class="product-img"
+                alt="คันเบ็ด"
+            >
+
             <div class="info">
-                <h3>คันเบ็ด Carbon Pro</h3>
-                <p>คันเบ็ดคุณภาพสูง 6.6 ฟุต</p>
-                <div class="price">฿1,290</div>
-                <button class="add" onclick="addCart()">🛒 เพิ่มลงตะกร้า</button>
+
+                <h3>คันเบ็ดตกปลา</h3>
+
+                <p>
+                    คันเบ็ดคุณภาพ แข็งแรง
+                    เหมาะสำหรับตกปลาหลากหลายชนิด
+                </p>
+
+                <div class="price">
+                    ฿1,290
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addCart('คันเบ็ดตกปลา')"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
             </div>
+
         </div>
 
+
+        <!-- PRODUCT 2 -->
         <div class="card">
-            <div class="product-img"
-                <img src="reel.jpg" alt="รอก Ocean 3000">
-</div>
+
+            <img
+                src="reel.jpg"
+                class="product-img"
+                alt="รอกตกปลา"
+            >
+
             <div class="info">
-                <h3>รอก Ocean 3000</h3>
-                <p>รอกสปินนิ่ง แข็งแรง ใช้งานง่าย</p>
-                <div class="price">฿890</div>
-                <button class="add" onclick="addCart()">🛒 เพิ่มลงตะกร้า</button>
+
+                <h3>รอกตกปลา</h3>
+
+                <p>
+                    รอกสปินนิ่ง ใช้งานง่าย
+                    แข็งแรงและทนทาน
+                </p>
+
+                <div class="price">
+                    ฿890
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addCart('รอกตกปลา')"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
             </div>
+
         </div>
 
+
+        <!-- PRODUCT 3 -->
         <div class="card">
-            <div class="product-img">
-                <img src="lure.jpg" alt="เหยื่อปลอม Minnow">
-</div>
+
+            <img
+                src="lure.jpg"
+                class="product-img"
+                alt="เหยื่อปลอม"
+            >
+
             <div class="info">
-                <h3>เหยื่อปลอม Minnow</h3>
-                <p>เหยื่อปลอมสำหรับปลานักล่า</p>
-                <div class="price">฿159</div>
-                <button class="add" onclick="addCart()">🛒 เพิ่มลงตะกร้า</button>
+
+                <h3>เหยื่อปลอม</h3>
+
+                <p>
+                    เหยื่อปลอมสำหรับนักตกปลา
+                    เหมาะกับปลานักล่า
+                </p>
+
+                <div class="price">
+                    ฿159
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addCart('เหยื่อปลอม')"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
             </div>
+
         </div>
 
+
+        <!-- PRODUCT 4 -->
         <div class="card">
-            <div class="product-img">
-                 <img src="line.jpg" alt="สาย PE X8">
-</div>
+
+            <img
+                src="line.jpg"
+                class="product-img"
+                alt="สายตกปลา"
+            >
+
             <div class="info">
-                <h3>สาย PE X8</h3>
-                <p>สายถัก PE 8 เส้น ขนาด 150 เมตร</p>
-                <div class="price">฿390</div>
-                <button class="add" onclick="addCart()">🛒 เพิ่มลงตะกร้า</button>
+
+                <h3>สายตกปลา PE</h3>
+
+                <p>
+                    สาย PE คุณภาพสูง
+                    เหนียวและทนต่อแรงดึง
+                </p>
+
+                <div class="price">
+                    ฿390
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addCart('สายตกปลา PE')"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
             </div>
+
         </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="card">
+
+            <img
+                src="shop.jpg"
+                class="product-img"
+                alt="อุปกรณ์ตกปลา"
+            >
+
+            <div class="info">
+
+                <h3>ชุดอุปกรณ์ตกปลา</h3>
+
+                <p>
+                    อุปกรณ์ตกปลาครบชุด
+                    สำหรับมือใหม่
+                </p>
+
+                <div class="price">
+                    ฿1,590
+                </div>
+
+                <button
+                    class="add"
+                    onclick="addCart('ชุดอุปกรณ์ตกปลา')"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+        </div>
+
 
     </div>
+
 </section>
 
+
+<!-- ABOUT -->
 <section class="about" id="about">
+
     <div class="title">
+
         <h2>เกี่ยวกับหทัยฟิชชิ่ง</h2>
+
     </div>
 
-    <p>
-        ร้านอุปกรณ์ตกปลาสำหรับคนรักการตกปลา
-        จำหน่ายคันเบ็ด รอก เหยื่อ สายเอ็น
-        และอุปกรณ์ตกปลาหลากหลายชนิด
-    </p>
+    <div class="about-text">
+
+        <p>
+            หทัยฟิชชิ่ง เป็นร้านจำหน่ายอุปกรณ์ตกปลา
+            สำหรับผู้ที่ชื่นชอบการตกปลา
+            เรามีสินค้าให้เลือกหลากหลายประเภท
+            ไม่ว่าจะเป็นคันเบ็ด รอก เหยื่อปลอม
+            สายตกปลา และอุปกรณ์เสริมต่าง ๆ
+        </p>
+
+    </div>
+
 </section>
 
+
+<!-- CONTACT -->
 <section class="contact" id="contact">
+
     <div class="title">
-        <h2>ติดต่อเรา</h2>
+
+        <h2>📞 ติดต่อเรา</h2>
+
     </div>
 
     <p>📍 อุดมสุข - แยกศรีอุดม กรุงเทพฯ</p>
-    <p>📞 โทร: 08X-XXX-XXXX</p>
+
+    <p>📱 โทร: 08X-XXX-XXXX</p>
+
     <p>💬 Line: @hathaifishing</p>
+
+    <p>📘 Facebook: หทัยฟิชชิ่ง</p>
+
 </section>
 
+
+<!-- FOOTER -->
 <footer>
-    © 2026 หทัยฟิชชิ่ง | Fishing Equipment Store
+
+    <p>
+        © 2026 หทัยฟิชชิ่ง
+        | Fishing Equipment Store
+    </p>
+
 </footer>
 
-<script>
-let count = 0;
 
-function addCart(){
-    count++;
-    document.getElementById("count").innerText = count;
-    alert("เพิ่มสินค้าลงตะกร้าแล้ว 🎣");
+<!-- JAVASCRIPT -->
+<script>
+
+let cartCount = 0;
+
+function addCart(productName) {
+
+    cartCount++;
+
+    document.getElementById("cartCount").innerText = cartCount;
+
+    alert(
+        "เพิ่ม " + productName +
+        " ลงในตะกร้าแล้ว 🎣"
+    );
+
 }
+
 </script>
 
 </body>
