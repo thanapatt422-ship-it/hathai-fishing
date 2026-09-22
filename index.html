@@ -4,43 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>หทัยฟิชชิ่ง | อุปกรณ์ตกปลา</title>
+<title>หทัยฟิชชิ่ง | ร้านอุปกรณ์ตกปลา</title>
 
 <style>
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f8f6;
+    background: #f3f7f5;
     color: #17352a;
 }
 
 /* HEADER */
 header {
-    background: #064d35;
+    background: #075b3f;
     color: white;
-    padding: 16px 6%;
+    padding: 18px 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 12px;
     font-weight: bold;
 }
 
@@ -50,17 +50,17 @@ nav a:hover {
 
 .cart {
     background: #f28c38;
-    padding: 10px 16px;
+    padding: 11px 18px;
     border-radius: 10px;
     font-weight: bold;
 }
 
 /* HERO */
 .hero {
-    min-height: 450px;
+    min-height: 430px;
     background:
-        linear-gradient(rgba(0,70,45,.75), rgba(0,70,45,.75)),
-        url("shop.jpg") center/cover;
+        linear-gradient(rgba(0,70,45,0.65), rgba(0,70,45,0.65)),
+        url("./shop.jpg") center center / cover no-repeat;
 
     display: flex;
     align-items: center;
@@ -77,7 +77,7 @@ nav a:hover {
 
 .hero p {
     font-size: 21px;
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .btn {
@@ -90,13 +90,9 @@ nav a:hover {
     font-weight: bold;
 }
 
-.btn:hover {
-    background: #ff9f50;
-}
-
 /* SECTION */
 section {
-    padding: 60px 6%;
+    padding: 55px 6%;
 }
 
 .title {
@@ -107,10 +103,6 @@ section {
 .title h2 {
     font-size: 34px;
     margin-bottom: 10px;
-}
-
-.title p {
-    color: #666;
 }
 
 /* PRODUCTS */
@@ -124,13 +116,7 @@ section {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,.10);
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
 }
 
 .product-img {
@@ -138,6 +124,7 @@ section {
     height: 230px;
     object-fit: cover;
     display: block;
+    background: #ddd;
 }
 
 .info {
@@ -145,18 +132,19 @@ section {
 }
 
 .info h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 21px;
+    margin-bottom: 10px;
 }
 
 .info p {
     color: #666;
-    min-height: 40px;
+    line-height: 1.5;
+    min-height: 50px;
 }
 
 .price {
     color: #078047;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: bold;
     margin: 15px 0;
 }
@@ -164,9 +152,9 @@ section {
 .add {
     width: 100%;
     border: none;
-    background: #064d35;
+    background: #075b3f;
     color: white;
-    padding: 12px;
+    padding: 13px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
@@ -184,7 +172,7 @@ section {
 }
 
 .about-text {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     line-height: 1.8;
     font-size: 17px;
@@ -209,9 +197,8 @@ footer {
     padding: 25px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 900px) {
-
     .products {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -222,7 +209,6 @@ footer {
 }
 
 @media (max-width: 550px) {
-
     .products {
         grid-template-columns: 1fr;
     }
@@ -236,7 +222,6 @@ footer {
 
 <body>
 
-<!-- HEADER -->
 <header>
 
     <div class="logo">
@@ -261,18 +246,16 @@ footer {
 <section class="hero" id="home">
 
     <div>
-
         <h1>หทัยฟิชชิ่ง</h1>
 
         <p>
-            อุปกรณ์ตกปลาคุณภาพ
-            สำหรับนักตกปลาทุกระดับ
+            ร้านอุปกรณ์ตกปลา
+            อุปกรณ์คุณภาพ ราคาคุ้มค่า
         </p>
 
         <a href="#products" class="btn">
             🛒 เลือกซื้อสินค้า
         </a>
-
     </div>
 
 </section>
@@ -282,26 +265,20 @@ footer {
 <section id="products">
 
     <div class="title">
-
         <h2>🎣 สินค้าของเรา</h2>
-
-        <p>
-            อุปกรณ์ตกปลาคุณภาพ ราคาคุ้มค่า
-        </p>
-
+        <p>อุปกรณ์ตกปลาคุณภาพสำหรับนักตกปลาทุกระดับ</p>
     </div>
 
 
     <div class="products">
 
-
-        <!-- PRODUCT 1 -->
+        <!-- 1 -->
         <div class="card">
 
             <img
                 src="./rod.jpg"
                 class="product-img"
-                alt="คันเบ็ด"
+                alt="คันเบ็ดตกปลา"
             >
 
             <div class="info">
@@ -317,10 +294,8 @@ footer {
                     ฿1,290
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addCart('คันเบ็ดตกปลา')"
-                >
+                <button class="add"
+                    onclick="addCart('คันเบ็ดตกปลา')">
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -329,7 +304,7 @@ footer {
         </div>
 
 
-        <!-- PRODUCT 2 -->
+        <!-- 2 -->
         <div class="card">
 
             <img
@@ -351,10 +326,8 @@ footer {
                     ฿890
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addCart('รอกตกปลา')"
-                >
+                <button class="add"
+                    onclick="addCart('รอกตกปลา')">
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -363,7 +336,7 @@ footer {
         </div>
 
 
-        <!-- PRODUCT 3 -->
+        <!-- 3 -->
         <div class="card">
 
             <img
@@ -378,17 +351,15 @@ footer {
 
                 <p>
                     เหยื่อปลอมสำหรับนักตกปลา
-                    เหมาะกับปลานักล่า
+                    เหมาะสำหรับปลานักล่า
                 </p>
 
                 <div class="price">
                     ฿159
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addCart('เหยื่อปลอม')"
-                >
+                <button class="add"
+                    onclick="addCart('เหยื่อปลอม')">
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -397,13 +368,13 @@ footer {
         </div>
 
 
-        <!-- PRODUCT 4 -->
+        <!-- 4 -->
         <div class="card">
 
             <img
                 src="./line.jpg"
                 class="product-img"
-                alt="สายตกปลา"
+                alt="สายตกปลา PE"
             >
 
             <div class="info">
@@ -419,10 +390,8 @@ footer {
                     ฿390
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addCart('สายตกปลา PE')"
-                >
+                <button class="add"
+                    onclick="addCart('สายตกปลา PE')">
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -431,13 +400,13 @@ footer {
         </div>
 
 
-        <!-- PRODUCT 5 -->
+        <!-- 5 -->
         <div class="card">
 
             <img
                 src="./shop.jpg"
                 class="product-img"
-                alt="อุปกรณ์ตกปลา"
+                alt="ชุดอุปกรณ์ตกปลา"
             >
 
             <div class="info">
@@ -446,24 +415,21 @@ footer {
 
                 <p>
                     อุปกรณ์ตกปลาครบชุด
-                    สำหรับมือใหม่
+                    เหมาะสำหรับมือใหม่
                 </p>
 
                 <div class="price">
                     ฿1,590
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addCart('ชุดอุปกรณ์ตกปลา')"
-                >
+                <button class="add"
+                    onclick="addCart('ชุดอุปกรณ์ตกปลา')">
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
             </div>
 
         </div>
-
 
     </div>
 
@@ -474,9 +440,7 @@ footer {
 <section class="about" id="about">
 
     <div class="title">
-
         <h2>เกี่ยวกับหทัยฟิชชิ่ง</h2>
-
     </div>
 
     <div class="about-text">
@@ -484,8 +448,8 @@ footer {
         <p>
             หทัยฟิชชิ่ง เป็นร้านจำหน่ายอุปกรณ์ตกปลา
             สำหรับผู้ที่ชื่นชอบการตกปลา
-            เรามีสินค้าให้เลือกหลากหลายประเภท
-            ไม่ว่าจะเป็นคันเบ็ด รอก เหยื่อปลอม
+            มีสินค้าให้เลือกหลากหลายประเภท
+            เช่น คันเบ็ด รอก เหยื่อปลอม
             สายตกปลา และอุปกรณ์เสริมต่าง ๆ
         </p>
 
@@ -498,34 +462,26 @@ footer {
 <section class="contact" id="contact">
 
     <div class="title">
-
         <h2>📞 ติดต่อเรา</h2>
-
     </div>
 
     <p>📍 อุดมสุข - แยกศรีอุดม กรุงเทพฯ</p>
-
     <p>📱 โทร: 08X-XXX-XXXX</p>
-
     <p>💬 Line: @hathaifishing</p>
-
     <p>📘 Facebook: หทัยฟิชชิ่ง</p>
 
 </section>
 
 
-<!-- FOOTER -->
 <footer>
 
     <p>
-        © 2026 หทัยฟิชชิ่ง
-        | Fishing Equipment Store
+        © 2026 หทัยฟิชชิ่ง | Fishing Equipment Store
     </p>
 
 </footer>
 
 
-<!-- JAVASCRIPT -->
 <script>
 
 let cartCount = 0;
@@ -540,7 +496,6 @@ function addCart(productName) {
         "เพิ่ม " + productName +
         " ลงในตะกร้าแล้ว 🎣"
     );
-
 }
 
 </script>
