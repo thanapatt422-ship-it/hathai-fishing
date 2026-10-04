@@ -1327,6 +1327,29 @@ function closePayment() {
 
 function confirmPayment() {
 
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const subdistrict = document.getElementById("customerSubdistrict").value.trim();
+    const district = document.getElementById("customerDistrict").value.trim();
+    const province = document.getElementById("customerProvince").value.trim();
+    const zip = document.getElementById("customerZip").value.trim();
+
+    const slip = document.getElementById("slip");
+
+    if (!name || !phone || !address || !subdistrict ||
+        !district || !province || !zip) {
+
+        alert("กรุณากรอกข้อมูลสำหรับจัดส่งให้ครบ");
+        return;
+    }
+
+    if (slip.files.length === 0) {
+
+        alert("กรุณาอัปโหลดสลิปก่อนแจ้งชำระเงิน");
+        return;
+    }
+
     const slip =
         document.getElementById("slip");
 
