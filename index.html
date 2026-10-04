@@ -7,6 +7,7 @@
 <title>หทัยฟิชชิ่ง | ร้านอุปกรณ์ตกปลา</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,7 +20,8 @@ body {
     color: #17352a;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header {
     background: #075b3f;
     color: white;
@@ -53,20 +55,28 @@ nav a:hover {
     padding: 11px 18px;
     border-radius: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero {
     min-height: 430px;
+
     background:
-        linear-gradient(rgba(0,70,45,0.65), rgba(0,70,45,0.65)),
+        linear-gradient(
+            rgba(0,70,45,0.65),
+            rgba(0,70,45,0.65)
+        ),
         url("./shop.jpg") center center / cover no-repeat;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     color: white;
+
     padding: 40px 20px;
 }
 
@@ -90,7 +100,8 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
+
 section {
     padding: 55px 6%;
 }
@@ -105,7 +116,8 @@ section {
     margin-bottom: 10px;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
+
 .products {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -116,14 +128,18 @@ section {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.12);
 }
 
 .product-img {
     width: 100%;
     height: 230px;
+
     object-fit: cover;
     display: block;
+
     background: #ddd;
 }
 
@@ -151,12 +167,18 @@ section {
 
 .add {
     width: 100%;
+
     border: none;
+
     background: #075b3f;
     color: white;
+
     padding: 13px;
+
     border-radius: 8px;
+
     cursor: pointer;
+
     font-size: 16px;
     font-weight: bold;
 }
@@ -165,7 +187,8 @@ section {
     background: #087a53;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
+
 .about {
     background: white;
     text-align: center;
@@ -174,11 +197,13 @@ section {
 .about-text {
     max-width: 850px;
     margin: auto;
+
     line-height: 1.8;
     font-size: 17px;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
+
 .contact {
     background: #e4f2eb;
     text-align: center;
@@ -189,16 +214,335 @@ section {
     font-size: 17px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 footer {
     background: #063326;
     color: white;
+
     text-align: center;
+
     padding: 25px;
 }
 
-/* MOBILE */
+/* ================= CART ================= */
+
+.cart-panel {
+
+    position: fixed;
+
+    top: 0;
+    right: -420px;
+
+    width: 400px;
+    max-width: 90%;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 1000;
+
+    box-shadow:
+        -5px 0 20px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.cart-header h2 {
+    color: #075b3f;
+}
+
+.close-cart {
+
+    background: #ddd;
+
+    border: none;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.cart-item {
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 15px 0;
+}
+
+.cart-item strong {
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.cart-item button {
+
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    padding: 6px 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.cart-total {
+
+    margin-top: 25px;
+
+    background: #e4f2eb;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.cart-total h3 {
+    margin-bottom: 10px;
+}
+
+.total-price {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #078047;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.65);
+
+    z-index: 2000;
+
+    overflow-y: auto;
+
+    padding: 30px 15px;
+}
+
+.payment.active {
+    display: block;
+}
+
+.payment-box {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.payment-box h2 {
+
+    color: #075b3f;
+
+    margin-bottom: 20px;
+}
+
+.close-payment {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+
+    background: #eee;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.payment-total {
+
+    background: #e4f2eb;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+.payment-total p {
+    margin-bottom: 5px;
+}
+
+.payment-price {
+
+    font-size: 30px;
+
+    color: #078047;
+
+    font-weight: bold;
+}
+
+/* QR */
+
+.qr-image {
+
+    width: 300px;
+
+    max-width: 100%;
+
+    display: block;
+
+    margin: 20px auto;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+}
+
+.account {
+
+    background: #f3f7f5;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+/* STEPS */
+
+.payment-steps {
+
+    text-align: left;
+
+    background: #f8faf9;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.payment-steps li {
+
+    margin: 8px 0;
+}
+
+/* SLIP */
+
+.slip-area {
+
+    text-align: left;
+
+    margin: 20px 0;
+}
+
+.slip-area label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.slip-area input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+}
+
+/* CONFIRM */
+
+.confirm-payment {
+
+    width: 100%;
+
+    background: #16a34a;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.confirm-payment:hover {
+
+    background: #15803d;
+}
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 900px) {
+
     .products {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -206,9 +550,11 @@ footer {
     nav {
         display: none;
     }
+
 }
 
 @media (max-width: 550px) {
+
     .products {
         grid-template-columns: 1fr;
     }
@@ -216,11 +562,21 @@ footer {
     .hero h1 {
         font-size: 38px;
     }
+
+    .cart-panel {
+        width: 100%;
+        max-width: 100%;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -229,50 +585,80 @@ footer {
     </div>
 
     <nav>
+
         <a href="#home">หน้าแรก</a>
+
         <a href="#products">สินค้า</a>
+
         <a href="#about">เกี่ยวกับร้าน</a>
+
         <a href="#contact">ติดต่อเรา</a>
+
     </nav>
 
-    <div class="cart">
-        🛒 ตะกร้า <span id="cartCount">0</span>
+    <div
+        class="cart"
+        onclick="openCart()"
+    >
+
+        🛒 ตะกร้า
+
+        <span id="cartCount">0</span>
+
     </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="home">
 
     <div>
-        <h1>หทัยฟิชชิ่ง</h1>
+
+        <h1>
+            หทัยฟิชชิ่ง
+        </h1>
 
         <p>
             ร้านอุปกรณ์ตกปลา
             อุปกรณ์คุณภาพ ราคาคุ้มค่า
         </p>
 
-        <a href="#products" class="btn">
+        <a
+            href="#products"
+            class="btn"
+        >
             🛒 เลือกซื้อสินค้า
         </a>
+
     </div>
 
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
+
 <section id="products">
 
     <div class="title">
-        <h2>🎣 สินค้าของเรา</h2>
-        <p>อุปกรณ์ตกปลาคุณภาพสำหรับนักตกปลาทุกระดับ</p>
+
+        <h2>
+            🎣 สินค้าของเรา
+        </h2>
+
+        <p>
+            อุปกรณ์ตกปลาคุณภาพสำหรับนักตกปลาทุกระดับ
+        </p>
+
     </div>
 
 
     <div class="products">
 
-        <!-- 1 -->
+
+        <!-- PRODUCT 1 -->
+
         <div class="card">
 
             <img
@@ -283,7 +669,9 @@ footer {
 
             <div class="info">
 
-                <h3>คันเบ็ดตกปลา</h3>
+                <h3>
+                    คันเบ็ดตกปลา
+                </h3>
 
                 <p>
                     คันเบ็ดคุณภาพ แข็งแรง
@@ -294,8 +682,10 @@ footer {
                     ฿1,290
                 </div>
 
-                <button class="add"
-                    onclick="addCart('คันเบ็ดตกปลา')">
+                <button
+                    class="add"
+                    onclick="addCart('คันเบ็ดตกปลา',1290)"
+                >
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -304,7 +694,8 @@ footer {
         </div>
 
 
-        <!-- 2 -->
+        <!-- PRODUCT 2 -->
+
         <div class="card">
 
             <img
@@ -315,7 +706,9 @@ footer {
 
             <div class="info">
 
-                <h3>รอกตกปลา</h3>
+                <h3>
+                    รอกตกปลา
+                </h3>
 
                 <p>
                     รอกสปินนิ่ง ใช้งานง่าย
@@ -326,8 +719,10 @@ footer {
                     ฿890
                 </div>
 
-                <button class="add"
-                    onclick="addCart('รอกตกปลา')">
+                <button
+                    class="add"
+                    onclick="addCart('รอกตกปลา',890)"
+                >
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -336,7 +731,8 @@ footer {
         </div>
 
 
-        <!-- 3 -->
+        <!-- PRODUCT 3 -->
+
         <div class="card">
 
             <img
@@ -347,7 +743,9 @@ footer {
 
             <div class="info">
 
-                <h3>เหยื่อปลอม</h3>
+                <h3>
+                    เหยื่อปลอม
+                </h3>
 
                 <p>
                     เหยื่อปลอมสำหรับนักตกปลา
@@ -358,8 +756,10 @@ footer {
                     ฿159
                 </div>
 
-                <button class="add"
-                    onclick="addCart('เหยื่อปลอม')">
+                <button
+                    class="add"
+                    onclick="addCart('เหยื่อปลอม',159)"
+                >
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -368,7 +768,8 @@ footer {
         </div>
 
 
-        <!-- 4 -->
+        <!-- PRODUCT 4 -->
+
         <div class="card">
 
             <img
@@ -379,7 +780,9 @@ footer {
 
             <div class="info">
 
-                <h3>สายตกปลา PE</h3>
+                <h3>
+                    สายตกปลา PE
+                </h3>
 
                 <p>
                     สาย PE คุณภาพสูง
@@ -390,8 +793,10 @@ footer {
                     ฿390
                 </div>
 
-                <button class="add"
-                    onclick="addCart('สายตกปลา PE')">
+                <button
+                    class="add"
+                    onclick="addCart('สายตกปลา PE',390)"
+                >
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -400,7 +805,8 @@ footer {
         </div>
 
 
-        <!-- 5 -->
+        <!-- PRODUCT 5 -->
+
         <div class="card">
 
             <img
@@ -411,7 +817,9 @@ footer {
 
             <div class="info">
 
-                <h3>ชุดอุปกรณ์ตกปลา</h3>
+                <h3>
+                    ชุดอุปกรณ์ตกปลา
+                </h3>
 
                 <p>
                     อุปกรณ์ตกปลาครบชุด
@@ -422,8 +830,10 @@ footer {
                     ฿1,590
                 </div>
 
-                <button class="add"
-                    onclick="addCart('ชุดอุปกรณ์ตกปลา')">
+                <button
+                    class="add"
+                    onclick="addCart('ชุดอุปกรณ์ตกปลา',1590)"
+                >
                     🛒 เพิ่มลงตะกร้า
                 </button>
 
@@ -431,16 +841,25 @@ footer {
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- ABOUT -->
-<section class="about" id="about">
+<!-- ================= ABOUT ================= -->
+
+<section
+    class="about"
+    id="about"
+>
 
     <div class="title">
-        <h2>เกี่ยวกับหทัยฟิชชิ่ง</h2>
+
+        <h2>
+            เกี่ยวกับหทัยฟิชชิ่ง
+        </h2>
+
     </div>
 
     <div class="about-text">
@@ -458,20 +877,41 @@ footer {
 </section>
 
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<!-- ================= CONTACT ================= -->
+
+<section
+    class="contact"
+    id="contact"
+>
 
     <div class="title">
-        <h2>📞 ติดต่อเรา</h2>
+
+        <h2>
+            📞 ติดต่อเรา
+        </h2>
+
     </div>
 
-    <p>📍 อุดมสุข - แยกศรีอุดม กรุงเทพฯ</p>
-    <p>📱 โทร: 08X-XXX-XXXX</p>
-    <p>💬 Line: @hathaifishing</p>
-    <p>📘 Facebook: หทัยฟิชชิ่ง</p>
+    <p>
+        📍 อุดมสุข - แยกศรีอุดม กรุงเทพฯ
+    </p>
+
+    <p>
+        📱 โทร: 08X-XXX-XXXX
+    </p>
+
+    <p>
+        💬 Line: @hathaifishing
+    </p>
+
+    <p>
+        📘 Facebook: หทัยฟิชชิ่ง
+    </p>
 
 </section>
 
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -482,21 +922,415 @@ footer {
 </footer>
 
 
+<!-- ================================================= -->
+<!-- CART PANEL -->
+<!-- ================================================= -->
+
+<div
+    class="cart-panel"
+    id="cartPanel"
+>
+
+    <div class="cart-header">
+
+        <h2>
+            🛒 ตะกร้าสินค้า
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="cartItems">
+
+        <p>
+            ยังไม่มีสินค้าในตะกร้า
+        </p>
+
+    </div>
+
+
+    <div class="cart-total">
+
+        <h3>
+            ยอดรวม
+        </h3>
+
+        <div
+            class="total-price"
+            id="totalPrice"
+        >
+            ฿0
+        </div>
+
+        <br>
+
+        <button
+            class="confirm-payment"
+            onclick="openPayment()"
+        >
+            💳 ดำเนินการชำระเงิน
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- PAYMENT -->
+<!-- ================================================= -->
+
+<div
+    class="payment"
+    id="payment"
+>
+
+    <div class="payment-box">
+
+        <button
+            class="close-payment"
+            onclick="closePayment()"
+        >
+            ✕
+        </button>
+
+
+        <h2>
+            💳 ชำระเงิน
+        </h2>
+
+
+        <div class="payment-total">
+
+            <p>
+                ยอดที่ต้องชำระ
+            </p>
+
+            <div
+                class="payment-price"
+                id="paymentPrice"
+            >
+                ฿0
+            </div>
+
+        </div>
+
+
+        <h3>
+            📱 สแกน QR เพื่อชำระเงิน
+        </h3>
+
+
+        <!-- QR ของร้าน -->
+
+        <img
+            src="./payment-qr.png"
+            class="qr-image"
+            alt="QR PromptPay ร้านหทัยฟิชชิ่ง"
+        >
+
+
+        <div class="account">
+
+            <b>
+                ชื่อบัญชี
+            </b>
+
+            <br>
+
+            นายธนภัทร สุวรรณดี
+
+        </div>
+
+
+        <div class="payment-steps">
+
+            <b>
+                วิธีชำระเงิน
+            </b>
+
+            <ol>
+
+                <li>
+                    เปิดแอปธนาคาร
+                </li>
+
+                <li>
+                    เลือกเมนูสแกน QR
+                </li>
+
+                <li>
+                    สแกน QR ด้านบน
+                </li>
+
+                <li>
+                    ตรวจสอบชื่อบัญชีและยอดเงิน
+                </li>
+
+                <li>
+                    ยืนยันการชำระเงิน
+                </li>
+
+                <li>
+                    เก็บสลิปไว้เป็นหลักฐาน
+                </li>
+
+            </ol>
+
+        </div>
+
+
+        <div class="slip-area">
+
+            <label>
+                📷 อัปโหลดสลิปการโอนเงิน
+            </label>
+
+            <input
+                type="file"
+                id="slip"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <button
+            class="confirm-payment"
+            onclick="confirmPayment()"
+        >
+            ✅ แจ้งชำระเงิน
+        </button>
+
+
+        <p style="margin-top:15px;color:#777;font-size:14px;">
+            กรุณาตรวจสอบชื่อบัญชีและยอดเงินก่อนชำระ
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-let cartCount = 0;
+let cart = [];
 
-function addCart(productName) {
 
-    cartCount++;
+/* ================= ADD CART ================= */
 
-    document.getElementById("cartCount").innerText = cartCount;
+function addCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    updateCart();
 
     alert(
-        "เพิ่ม " + productName +
+        "เพิ่ม " +
+        name +
         " ลงในตะกร้าแล้ว 🎣"
     );
 }
+
+
+/* ================= UPDATE CART ================= */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const totalPrice =
+        document.getElementById("totalPrice");
+
+
+    cartCount.innerText =
+        cart.length;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            "<p>ยังไม่มีสินค้าในตะกร้า</p>";
+
+        totalPrice.innerText =
+            "฿0";
+
+        return;
+    }
+
+
+    let html = "";
+
+    let total = 0;
+
+
+    cart.forEach(function(item, index) {
+
+        total += item.price;
+
+
+        html += `
+
+            <div class="cart-item">
+
+                <strong>
+                    ${item.name}
+                </strong>
+
+                <p>
+                    ฿${item.price.toLocaleString()}
+                </p>
+
+                <button
+                    onclick="removeCart(${index})"
+                >
+                    ลบสินค้า
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    cartItems.innerHTML =
+        html;
+
+
+    totalPrice.innerText =
+        "฿" + total.toLocaleString();
+
+}
+
+
+/* ================= REMOVE ================= */
+
+function removeCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+/* ================= OPEN CART ================= */
+
+function openCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("active");
+
+}
+
+
+/* ================= CLOSE CART ================= */
+
+function closeCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("active");
+
+}
+
+
+/* ================= OPEN PAYMENT ================= */
+
+function openPayment() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "กรุณาเพิ่มสินค้าลงตะกร้าก่อนชำระเงิน"
+        );
+
+        return;
+    }
+
+
+    let total = 0;
+
+
+    cart.forEach(function(item) {
+
+        total += item.price;
+
+    });
+
+
+    document
+        .getElementById("paymentPrice")
+        .innerText =
+        "฿" + total.toLocaleString();
+
+
+    document
+        .getElementById("payment")
+        .classList.add("active");
+
+}
+
+
+/* ================= CLOSE PAYMENT ================= */
+
+function closePayment() {
+
+    document
+        .getElementById("payment")
+        .classList.remove("active");
+
+}
+
+
+/* ================= CONFIRM PAYMENT ================= */
+
+function confirmPayment() {
+
+    const slip =
+        document.getElementById("slip");
+
+
+    if (slip.files.length === 0) {
+
+        alert(
+            "กรุณาอัปโหลดสลิปก่อนแจ้งชำระเงิน"
+        );
+
+        return;
+    }
+
+
+    alert(
+        "แจ้งชำระเงินเรียบร้อยแล้ว ✅\n\n" +
+        "ทางร้านจะตรวจสอบสลิปและยืนยันคำสั่งซื้อ"
+    );
+
+
+    slip.value = "";
+
+    closePayment();
+
+}
+
 
 </script>
 
