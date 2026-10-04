@@ -1350,30 +1350,18 @@ function confirmPayment() {
         return;
     }
 
-    const slip =
-        document.getElementById("slip");
-
-
-    if (slip.files.length === 0) {
-
-        alert(
-            "กรุณาอัปโหลดสลิปก่อนแจ้งชำระเงิน"
-        );
-
-        return;
-    }
-
-
     alert(
-        "แจ้งชำระเงินเรียบร้อยแล้ว ✅\n\n" +
-        "ทางร้านจะตรวจสอบสลิปและยืนยันคำสั่งซื้อ"
+        "สั่งซื้อเรียบร้อยแล้ว 🎉\n\n" +
+        "ผู้รับ: " + name + "\n" +
+        "เบอร์โทร: " + phone + "\n" +
+        "ที่อยู่: " + address + "\n" +
+        subdistrict + " " + district + "\n" +
+        province + " " + zip
     );
-
 
     slip.value = "";
 
     closePayment();
-
 }
 
 
