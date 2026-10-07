@@ -1790,6 +1790,38 @@ function confirmPayment() {
 
 
 </script>
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } 
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC8ggcS4FCggfGpTOFlzsczmwiA2x4IP0U",
+    authDomain: "planning-with-ai-f5e26.firebaseapp.com",
+    projectId: "planning-with-ai-f5e26",
+    storageBucket: "planning-with-ai-f5e26.firebasestorage.app",
+    messagingSenderId: "494734842939",
+    appId: "1:494734842939:web:89e0f75096e7af001c501e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.firebaseAuth = auth;
+  window.createUserWithEmailAndPassword =
+    createUserWithEmailAndPassword;
+  window.signInWithEmailAndPassword =
+    signInWithEmailAndPassword;
+  window.signOut = signOut;
+  window.onAuthStateChanged = onAuthStateChanged;
+</script>
 </body>
 </html>
