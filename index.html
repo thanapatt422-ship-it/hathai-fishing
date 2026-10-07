@@ -578,29 +578,7 @@ footer {
 <body>
 <!-- ================= ระบบเข้าสู่ระบบ ================= -->
 
-<div id="authBox" style="max-width:400px;margin:40px auto;padding:25px;background:white;border-radius:15px;text-align:center;box-shadow:0 5px 20px #ccc;">
-  
-  <h2>🔐 เข้าสู่ระบบ</h2>
 
-  <input id="email" type="email" placeholder="อีเมล"
-    style="width:90%;padding:12px;margin:8px;border-radius:8px;border:1px solid #ccc;">
-
-  <input id="password" type="password" placeholder="รหัสผ่าน"
-    style="width:90%;padding:12px;margin:8px;border-radius:8px;border:1px solid #ccc;">
-
-  <br>
-
-  <button onclick="registerUser()"
-    style="padding:12px 20px;margin:8px;background:#075b3f;color:white;border:0;border-radius:8px;">
-    สมัครสมาชิก
-  </button>
-
-  <button onclick="loginUser()"
-    style="padding:12px 20px;margin:8px;background:#f28c38;color:white;border:0;border-radius:8px;">
-    เข้าสู่ระบบ
-  </button>
-
-  <p id="authMessage"></p>
 
 </div>
 
@@ -622,6 +600,9 @@ footer {
 
         <a href="#contact">ติดต่อเรา</a>
 
+        <button onclick="openMember()" class="member-btn">
+  👤 สมาชิก
+</button>
     </nav>
 
     <div
@@ -1880,5 +1861,33 @@ function loginUser() {
     });
 }
 </script>
+    <!-- หน้าสมาชิก -->
+<div id="memberModal" class="member-modal">
+
+  <div class="member-box">
+
+    <button class="close-member" onclick="closeMember()">×</button>
+
+    <h2>👤 สมาชิกหทัยฟิชชิ่ง</h2>
+
+    <p>เข้าสู่ระบบหรือสมัครสมาชิก</p>
+
+    <input id="email" type="email" placeholder="📧 อีเมล">
+
+    <input id="password" type="password" placeholder="🔒 รหัสผ่าน">
+
+    <button onclick="loginUser()" class="login-btn">
+      เข้าสู่ระบบ
+    </button>
+
+    <button onclick="registerUser()" class="register-btn">
+      สมัครสมาชิก
+    </button>
+
+    <p id="authMessage"></p>
+
+  </div>
+
+</div>
 </body>
 </html>
