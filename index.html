@@ -576,7 +576,33 @@ footer {
 </head>
 
 <body>
+<!-- ================= ระบบเข้าสู่ระบบ ================= -->
 
+<div id="authBox" style="max-width:400px;margin:40px auto;padding:25px;background:white;border-radius:15px;text-align:center;box-shadow:0 5px 20px #ccc;">
+  
+  <h2>🔐 เข้าสู่ระบบ</h2>
+
+  <input id="email" type="email" placeholder="อีเมล"
+    style="width:90%;padding:12px;margin:8px;border-radius:8px;border:1px solid #ccc;">
+
+  <input id="password" type="password" placeholder="รหัสผ่าน"
+    style="width:90%;padding:12px;margin:8px;border-radius:8px;border:1px solid #ccc;">
+
+  <br>
+
+  <button onclick="registerUser()"
+    style="padding:12px 20px;margin:8px;background:#075b3f;color:white;border:0;border-radius:8px;">
+    สมัครสมาชิก
+  </button>
+
+  <button onclick="loginUser()"
+    style="padding:12px 20px;margin:8px;background:#f28c38;color:white;border:0;border-radius:8px;">
+    เข้าสู่ระบบ
+  </button>
+
+  <p id="authMessage"></p>
+
+</div>
 
 <!-- ================= HEADER ================= -->
 
@@ -1822,6 +1848,37 @@ function confirmPayment() {
     signInWithEmailAndPassword;
   window.signOut = signOut;
   window.onAuthStateChanged = onAuthStateChanged;
+</script>
+    <script>
+function registerUser() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(firebaseAuth, email, password)
+    .then(() => {
+      document.getElementById("authMessage").innerText =
+        "สมัครสมาชิกสำเร็จ 🎉";
+    })
+    .catch((error) => {
+      document.getElementById("authMessage").innerText =
+        "สมัครไม่สำเร็จ: " + error.message;
+    });
+}
+
+function loginUser() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(firebaseAuth, email, password)
+    .then(() => {
+      document.getElementById("authMessage").innerText =
+        "เข้าสู่ระบบสำเร็จ ✅";
+    })
+    .catch((error) => {
+      document.getElementById("authMessage").innerText =
+        "เข้าสู่ระบบไม่สำเร็จ: " + error.message;
+    });
+}
 </script>
 </body>
 </html>
