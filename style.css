@@ -1,1 +1,88 @@
 CSS
+.member-btn {
+    background: #f28c38;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.member-btn:hover {
+    background: #075b3f;
+}
+
+.member-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    justify-content: center;
+    align-items: center;
+}
+
+.member-modal.active {
+    display: flex;
+}
+
+.member-box {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.member-box h2 {
+    color: #075b3f;
+    margin-bottom: 10px;
+}
+
+.member-box p {
+    margin-bottom: 15px;
+}
+
+.member-box input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.login-btn,
+.register-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #075b3f;
+}
+
+.register-btn {
+    background: #f28c38;
+}
+
+.close-member {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #555;
+}
