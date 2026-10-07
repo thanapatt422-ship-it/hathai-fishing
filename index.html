@@ -107,7 +107,6 @@ section {
     padding: 55px 6%;
     background: #e0f7fa;
 }
-}
 
 .title {
     text-align: center;
@@ -571,7 +570,100 @@ footer {
     }
 
 }
+/* ================= MEMBER ================= */
 
+.member-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 5000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.member-modal.active {
+    display: flex;
+}
+
+.member-box {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+}
+
+.member-box h2 {
+    color: #075b3f;
+    margin-bottom: 10px;
+}
+
+.member-box > p {
+    margin-bottom: 18px;
+}
+
+.member-box input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.member-btn {
+    border: none;
+    background: #f28c38;
+    color: white;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.member-btn:hover {
+    background: #ffd166;
+    color: #17352a;
+}
+
+.register-btn,
+.login-btn {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.register-btn {
+    background: #075b3f;
+}
+
+.login-btn {
+    background: #f28c38;
+}
+
+.close-member {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #eee;
+    font-size: 22px;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -579,8 +671,6 @@ footer {
 <!-- ================= ระบบเข้าสู่ระบบ ================= -->
 
 
-
-</div>
 
 <!-- ================= HEADER ================= -->
 
@@ -1577,7 +1667,22 @@ footer {
 <script>
 
 let cart = [];
+/* ================= MEMBER ================= */
 
+function openMember() {
+    document.getElementById("memberModal").classList.add("active");
+}
+
+function closeMember() {
+    document.getElementById("memberModal").classList.remove("active");
+}
+
+function showLogin() {
+    document.querySelector(".member-box h2").innerText = "👤 เข้าสู่ระบบ";
+    document.querySelector(".member-box > p").innerText = "เข้าสู่ระบบหทัยฟิชชิ่ง";
+    document.querySelector(".register-btn").style.display = "none";
+    document.querySelector(".login-btn").style.display = "none";
+}
 
 /* ================= ADD CART ================= */
 
