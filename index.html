@@ -1674,105 +1674,60 @@ footer {
             💰 เลือกวิธีชำระเงิน
         </h3>
 
-        <div class="payment-methods">
+      <div class="payment-methods">
 
-            <label class="payment-option">
+    <label class="payment-option">
+        <input type="radio"
+               name="paymentMethod"
+               value="qr"
+               checked
+               onchange="changePaymentMethod()">
+        <span>📱 ชำระผ่าน QR Code</span>
+    </label>
 
-                <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="qr"
-                    checked
-                    onchange="changePaymentMethod()"
-                >
+    <label class="payment-option">
+        <input type="radio"
+               name="paymentMethod"
+               value="cod"
+               onchange="changePaymentMethod()">
+        <span>💵 เก็บเงินปลายทาง</span>
+    </label>
 
-                <span>
-                    📱 ชำระผ่าน QR Code
-                </span>
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="cod"
-                    onchange="changePaymentMethod()"
-                >
-
-                <span>
-                    💵 เก็บเงินปลายทาง
-                </span>
-
-            </label>
-
-        </div>
+</div>
 
 
         <!-- ================= QR PAYMENT ================= -->
 
-        <div id="qrPayment">
+       <div id="qrPayment">
 
-            <h3>
-                📱 สแกน QR เพื่อชำระเงิน
-            </h3>
+    <h3>📱 สแกน QR เพื่อชำระเงิน</h3>
 
-            <img
-                src="./payment-qr2.png"
-                class="qr-image"
-                alt="QR PromptPay ร้านหทัยฟิชชิ่ง"
-            >
+    <img src="./payment-qr2.png"
+         class="qr-image"
+         alt="QR PromptPay ร้านหทัยฟิชชิ่ง">
 
-            <div class="account">
+    <div class="account">
+        <b>ชื่อบัญชี</b><br>
+        ร้านหทัยฟิชชิ่ง
+    </div>
 
-                <b>
-                    ชื่อบัญชี
-                </b>
+    <div class="payment-steps">
+        <b>วิธีชำระเงิน</b>
+        <ol>
+            <li>เปิดแอปธนาคาร</li>
+            <li>เลือกเมนูสแกน QR</li>
+            <li>สแกน QR ด้านบน</li>
+            <li>ตรวจสอบยอดเงิน</li>
+            <li>ยืนยันการชำระเงิน</li>
+        </ol>
+    </div>
 
-                <br>
+    <div class="slip-area">
+        <label>📄 อัปโหลดสลิปการโอนเงิน</label>
+        <input type="file" id="slip" accept="image/*">
+    </div>
 
-                ร้านหทัยฟิชชิ่ง
-
-            </div>
-
-
-            <div class="payment-steps">
-
-                <b>
-                    วิธีชำระเงิน
-                </b>
-
-                <ol>
-
-                    <li>
-                        เปิดแอปธนาคาร
-                    </li>
-
-                    <li>
-                        เลือกเมนูสแกน QR
-                    </li>
-
-                    <li>
-                        สแกน QR ด้านบน
-                    </li>
-
-                    <li>
-                        ตรวจสอบชื่อบัญชีและยอดเงิน
-                    </li>
-
-                    <li>
-                        ยืนยันการชำระเงิน
-                    </li>
-
-                    <li>
-                        เก็บสลิปไว้เป็นหลักฐาน
-                    </li>
-
-                </ol>
-
-            </div>
+</div>
 
 
             <!-- อัปโหลดสลิป -->
@@ -1797,32 +1752,26 @@ footer {
         <!-- ================= COD ================= -->
 
         <div
-            id="codPayment"
-            style="display:none;"
-        >
+          <div id="codPayment" style="display:none;">
 
-            <div class="cod-box">
+    <div class="cod-box">
 
-                <div class="cod-icon">
-                    💵
-                </div>
+        <div class="cod-icon">💵</div>
 
-                <h3>
-                    เก็บเงินปลายทาง
-                </h3>
+        <h3>เก็บเงินปลายทาง</h3>
 
-                <p>
-                    เลือกวิธีนี้หากต้องการชำระเงิน
-                    เมื่อได้รับสินค้า
-                </p>
+        <p>
+            เลือกวิธีนี้หากต้องการชำระเงิน
+            เมื่อได้รับสินค้า
+        </p>
 
-                <p class="cod-note">
-                    ⚠️ กรุณาเตรียมเงินให้พร้อมเมื่อพนักงานจัดส่งสินค้า
-                </p>
+        <p class="cod-note">
+            ⚠️ กรุณาเตรียมเงินให้พร้อมเมื่อพนักงานจัดส่งสินค้า
+        </p>
 
-            </div>
+    </div>
 
-        </div>
+</div>
 
 
         <!-- ================= CONFIRM ================= -->
@@ -2043,6 +1992,7 @@ function closePayment() {
 /* ================= CONFIRM PAYMENT ================= */
 
 function changePaymentMethod() {
+
     const method =
         document.querySelector('input[name="paymentMethod"]:checked').value;
 
@@ -2050,11 +2000,15 @@ function changePaymentMethod() {
     const codPayment = document.getElementById("codPayment");
 
     if (method === "qr") {
+
         qrPayment.style.display = "block";
         codPayment.style.display = "none";
+
     } else {
+
         qrPayment.style.display = "none";
         codPayment.style.display = "block";
+
     }
 }
 
