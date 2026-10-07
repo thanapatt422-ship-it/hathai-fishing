@@ -5,4 +5,3 @@ function openMember() {
 
 function closeMember() {
     document.getElementById("memberModal").classList.remove("active");
-}
