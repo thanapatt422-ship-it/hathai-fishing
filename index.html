@@ -664,6 +664,81 @@ footer {
     font-size: 22px;
     cursor: pointer;
 }
+    ```css
+/* ================= PAYMENT METHOD ================= */
+
+.payment-box input,
+.payment-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.payment-box textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0 20px;
+}
+
+.payment-option {
+    flex: 1;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 14px;
+    cursor: pointer;
+    background: #f8faf9;
+    font-weight: bold;
+}
+
+.payment-option:hover {
+    border-color: #075b3f;
+}
+
+.payment-option input {
+    width: auto;
+    margin-right: 7px;
+}
+
+.cod-box {
+    background: #fff7ed;
+    border: 2px solid #f28c38;
+    border-radius: 15px;
+    padding: 25px 18px;
+    margin: 15px 0 20px;
+    text-align: center;
+}
+
+.cod-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.cod-box h3 {
+    color: #075b3f;
+    margin-bottom: 10px;
+}
+
+.cod-box p {
+    line-height: 1.6;
+}
+
+.cod-note {
+    margin-top: 15px;
+    color: #b45309;
+    font-size: 14px;
+    font-weight: bold;
+}
+```
+
 </style>
 </head>
 
@@ -1967,6 +2042,23 @@ function closePayment() {
 
 /* ================= CONFIRM PAYMENT ================= */
 
+function changePaymentMethod() {
+    const method =
+        document.querySelector('input[name="paymentMethod"]:checked').value;
+
+    const qrPayment = document.getElementById("qrPayment");
+    const codPayment = document.getElementById("codPayment");
+
+    if (method === "qr") {
+        qrPayment.style.display = "block";
+        codPayment.style.display = "none";
+    } else {
+        qrPayment.style.display = "none";
+        codPayment.style.display = "block";
+    }
+}
+
+
 function confirmPayment() {
 
     const name = document.getElementById("customerName").value.trim();
@@ -1977,33 +2069,78 @@ function confirmPayment() {
     const province = document.getElementById("customerProvince").value.trim();
     const zip = document.getElementById("customerZip").value.trim();
 
-    const slip = document.getElementById("slip");
-
-    if (!name || !phone || !address || !subdistrict ||
-        !district || !province || !zip) {
-
+    if (
+        !name ||
+        !phone ||
+        !address ||
+        !subdistrict ||
+        !district ||
+        !province ||
+        !zip
+    ) {
         alert("กรุณากรอกข้อมูลสำหรับจัดส่งให้ครบ");
         return;
     }
 
-    if (slip.files.length === 0) {
+    const method =
+        document.querySelector('input[name="paymentMethod"]:checked').value;
 
-        alert("กรุณาอัปโหลดสลิปก่อนแจ้งชำระเงิน");
-        return;
+
+    /* ================= QR CODE ================= */
+
+    if (method === "qr") {
+
+        const slip = document.getElementById("slip");
+
+        if (slip.files.length === 0) {
+            alert("กรุณาอัปโหลดสลิปก่อนแจ้งชำระเงิน");
+            return;
+        }
+
+        alert(
+            "แจ้งชำระเงินเรียบร้อยแล้ว 🎉\n\n" +
+            "วิธีชำระเงิน: QR Code\n" +
+            "ผู้รับ: " + name + "\n" +
+            "เบอร์โทร: " + phone + "\n" +
+            "ที่อยู่: " + address + "\n" +
+            subdistrict + " " + district + "\n" +
+            province + " " + zip
+        );
+
+        slip.value = "";
     }
 
-    alert(
-        "สั่งซื้อเรียบร้อยแล้ว 🎉\n\n" +
-        "ผู้รับ: " + name + "\n" +
-        "เบอร์โทร: " + phone + "\n" +
-        "ที่อยู่: " + address + "\n" +
-        subdistrict + " " + district + "\n" +
-        province + " " + zip
-    );
 
-    slip.value = "";
+    /* ================= เก็บเงินปลายทาง ================= */
+
+    else {
+
+        alert(
+            "สั่งซื้อแบบเก็บเงินปลายทางเรียบร้อยแล้ว 🎉\n\n" +
+            "วิธีชำระเงิน: เก็บเงินปลายทาง\n" +
+            "ผู้รับ: " + name + "\n" +
+            "เบอร์โทร: " + phone + "\n" +
+            "ที่อยู่: " + address + "\n" +
+            subdistrict + " " + district + "\n" +
+            province + " " + zip + "\n\n" +
+            "กรุณาเตรียมเงินไว้ชำระเมื่อได้รับสินค้า 💵"
+        );
+    }
+
 
     closePayment();
+
+    cart = [];
+
+    updateCart();
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerAddress").value = "";
+    document.getElementById("customerSubdistrict").value = "";
+    document.getElementById("customerDistrict").value = "";
+    document.getElementById("customerProvince").value = "";
+    document.getElementById("customerZip").value = "";
 }
 
 
