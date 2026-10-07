@@ -1868,23 +1868,27 @@ function loginUser() {
 
     <button class="close-member" onclick="closeMember()">×</button>
 
-    <h2>👤 สมาชิกหทัยฟิชชิ่ง</h2>
+    <h2>👤 สมัครสมาชิก</h2>
 
-    <p>เข้าสู่ระบบหรือสมัครสมาชิก</p>
+    <p>สมัครสมาชิกหทัยฟิชชิ่ง</p>
 
     <input id="email" type="email" placeholder="📧 อีเมล">
 
     <input id="password" type="password" placeholder="🔒 รหัสผ่าน">
-
-    <button onclick="loginUser()" class="login-btn">
-      เข้าสู่ระบบ
-    </button>
 
     <button onclick="registerUser()" class="register-btn">
       สมัครสมาชิก
     </button>
 
     <p id="authMessage"></p>
+
+    <hr>
+
+    <p>มีบัญชีอยู่แล้ว?</p>
+
+    <button onclick="showLogin()" class="login-btn">
+      เข้าสู่ระบบ
+    </button>
 
   </div>
 
