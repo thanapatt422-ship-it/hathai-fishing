@@ -1,1 +1,157 @@
 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รีวิวลูกค้า | หทัยฟิชชิ่ง</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8f6;
+      color: #17352a;
+    }
+    header {
+      background: #0b4d35;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+    main {
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 20px;
+    }
+    .panel {
+      background: white;
+      padding: 22px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #00000010;
+    }
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font: inherit;
+    }
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      background: #f28c38;
+      color: white;
+      cursor: pointer;
+    }
+    .stars button {
+      background: transparent;
+      color: #ccc;
+      font-size: 28px;
+      padding: 4px;
+    }
+    .stars button.active { color: #f2a900; }
+    .review {
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+    a { color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>⭐ รีวิวจากลูกค้า</h2>
+    <a href="index.html">← กลับหน้าหลัก</a>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h3>เขียนรีวิวของคุณ</h3>
+      <label for="reviewType">รีวิวเกี่ยวกับ</label>
+      <select id="reviewType">
+        <option value="ร้านค้า">ร้านค้าและการบริการ</option>
+        <option value="สินค้า">สินค้า</option>
+      </select>
+
+      <label for="reviewName">ชื่อผู้รีวิว</label>
+      <input id="reviewName" placeholder="กรอกชื่อของคุณ">
+
+      <label>ให้คะแนน</label>
+      <div class="stars" id="reviewStars">
+        <button type="button" data-rating="1">★</button>
+        <button type="button" data-rating="2">★</button>
+        <button type="button" data-rating="3">★</button>
+        <button type="button" data-rating="4">★</button>
+        <button type="button" data-rating="5">★</button>
+      </div>
+
+      <label for="reviewText">ความคิดเห็น</label>
+      <textarea id="reviewText" rows="4" placeholder="เขียนความคิดเห็นของคุณ"></textarea>
+
+      <button type="button" id="submitReview">ส่งรีวิว</button>
+      <p id="reviewMessage"></p>
+    </section>
+
+    <section class="panel">
+      <h3>ความคิดเห็นจากลูกค้า</h3>
+      <div id="reviewList">ยังไม่มีรีวิว</div>
+    </section>
+  </main>
+
+  <script>
+    let rating = 0;
+    const stars = document.querySelectorAll("#reviewStars button");
+    const list = document.getElementById("reviewList");
+
+    stars.forEach(button => {
+      button.addEventListener("click", () => {
+        rating = Number(button.dataset.rating);
+        stars.forEach(star => {
+          star.classList.toggle(
+            "active",
+            Number(star.dataset.rating) <= rating
+          );
+        });
+      });
+    });
+
+    document.getElementById("submitReview").addEventListener("click", () => {
+      const name = document.getElementById("reviewName").value.trim();
+      const type = document.getElementById("reviewType").value;
+      const message = document.getElementById("reviewText").value.trim();
+      const status = document.getElementById("reviewMessage");
+
+      if (!name || !message || rating === 0) {
+        status.textContent = "กรุณากรอกชื่อ ความคิดเห็น และเลือกคะแนน";
+        return;
+      }
+
+      const review = document.createElement("div");
+      review.className = "review";
+
+      const heading = document.createElement("strong");
+      heading.textContent = name + " — " + type;
+
+      const score = document.createElement("p");
+      score.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+      const content = document.createElement("p");
+      content.textContent = message;
+
+      review.append(heading, score, content);
+      list.prepend(review);
+
+      status.textContent = "เพิ่มรีวิวบนหน้านี้แล้ว";
+      document.getElementById("reviewName").value = "";
+      document.getElementById("reviewText").value = "";
+      rating = 0;
+      stars.forEach(star => star.classList.remove("active"));
+    });
+  </script>
+</body>
+</html>
+
