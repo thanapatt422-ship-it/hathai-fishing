@@ -739,6 +739,212 @@ footer {
 }
 ```
 
+/* ================= CUSTOMER REVIEWS - HATHAI FISHING ================= */
+
+.reviews-section {
+    background: #f4f8f5;
+    padding: 65px 6%;
+}
+
+.reviews-section .title h2 {
+    color: #075b3f;
+    font-size: 34px;
+}
+
+.reviews-section .title p {
+    color: #64746a;
+    line-height: 1.7;
+}
+
+.review-form,
+.review-list {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 28px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e1eae3;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(7, 91, 63, 0.06);
+}
+
+.review-form h3,
+.review-list h3 {
+    color: #075b3f;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.review-form label {
+    display: block;
+    margin: 17px 0 8px;
+    color: #294438;
+    font-weight: 600;
+}
+
+.review-form select,
+.review-form input[type="text"],
+.review-form textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d5e1d8;
+    border-radius: 10px;
+    background: #fbfdfb;
+    color: #17352a;
+    font: inherit;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.review-form select:focus,
+.review-form input:focus,
+.review-form textarea:focus {
+    border-color: #16845a;
+    box-shadow: 0 0 0 3px rgba(22, 132, 90, .12);
+}
+
+.review-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.review-stars {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0 12px;
+}
+
+.review-stars button {
+    border: none;
+    background: #f0f3f0;
+    color: #c5cec7;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.review-stars button:hover,
+.review-stars button.active {
+    color: #f2ad24;
+    background: #fff6df;
+    transform: translateY(-1px);
+}
+
+.review-submit {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #075b3f;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.review-submit:hover {
+    background: #087a53;
+    transform: translateY(-1px);
+}
+
+#reviewMessage {
+    margin-top: 14px;
+    line-height: 1.6;
+    color: #075b3f;
+}
+
+.review-note {
+    margin-top: 12px;
+    color: #718077;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.review-card {
+    padding: 20px 0;
+    border-bottom: 1px solid #e7eee8;
+}
+
+.review-card:last-child {
+    border-bottom: none;
+}
+
+.review-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.review-card-name {
+    color: #17352a;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.review-card-type {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: #e8f4ec;
+    color: #075b3f;
+    font-size: 12px;
+}
+
+.review-card-stars {
+    margin: 10px 0;
+    color: #f2ad24;
+    letter-spacing: 2px;
+    font-size: 19px;
+}
+
+.review-card-text {
+    color: #4c5d52;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.review-date {
+    color: #849087;
+    font-size: 12px;
+}
+
+.review-empty {
+    padding: 25px 10px;
+    text-align: center;
+    color: #718077;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .reviews-section {
+        padding: 42px 16px;
+    }
+
+    .review-form,
+    .review-list {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .reviews-section .title h2 {
+        font-size: 28px;
+    }
+
+    .review-stars button {
+        width: 42px;
+        height: 42px;
+    }
+}
+
 </style>
 </head>
 
@@ -1491,8 +1697,9 @@ footer {
 
         <p id="reviewMessage" role="status"></p>
         <p class="review-note">
-            รีวิวจะปรากฏหลังจากเจ้าของร้านตรวจสอบและอนุมัติ
-        </p>
+    ขณะนี้รีวิวจะบันทึกไว้ในเบราว์เซอร์ที่ใช้งานเท่านั้น
+    หากต้องการให้ลูกค้าทุกคนเห็นรีวิวร่วมกัน ต้องเชื่อมต่อฐานข้อมูล
+</p>
     </div>
 
     <div class="review-list">
@@ -2236,5 +2443,154 @@ function loginUser() {
   </div>
 
 </div>
+    
+/* ================= CUSTOMER REVIEWS ================= */
+(() => {
+    const storageKey = "hathaiFishingReviews";
+    const stars = document.querySelectorAll(
+        "#reviewStars button"
+    );
+    const submitButton = document.getElementById("submitReview");
+    const list = document.getElementById("reviewList");
+    const message = document.getElementById("reviewMessage");
+
+    if (!stars.length || !submitButton || !list || !message) return;
+
+    let selectedRating = 0;
+    let reviews = [];
+
+    try {
+        reviews = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        if (!Array.isArray(reviews)) reviews = [];
+    } catch {
+        reviews = [];
+    }
+
+    function updateStars() {
+        stars.forEach((star) => {
+            const rating = Number(star.dataset.rating);
+            star.classList.toggle("active", rating <= selectedRating);
+            star.setAttribute(
+                "aria-pressed",
+                String(rating === selectedRating)
+            );
+        });
+    }
+
+    stars.forEach((star) => {
+        star.addEventListener("click", () => {
+            selectedRating = Number(star.dataset.rating);
+            updateStars();
+        });
+    });
+
+    function renderReviews() {
+        list.replaceChildren();
+
+        if (!reviews.length) {
+            const empty = document.createElement("p");
+            empty.className = "review-empty";
+            empty.textContent =
+                "ยังไม่มีรีวิว มาแบ่งปันประสบการณ์ของคุณเป็นคนแรกได้เลย 🎣";
+            list.appendChild(empty);
+            return;
+        }
+
+        [...reviews].reverse().forEach((review) => {
+            const card = document.createElement("article");
+            card.className = "review-card";
+
+            const top = document.createElement("div");
+            top.className = "review-card-top";
+
+            const details = document.createElement("div");
+            const name = document.createElement("div");
+            name.className = "review-card-name";
+            name.textContent = review.name;
+
+            const type = document.createElement("span");
+            type.className = "review-card-type";
+            type.textContent = review.type === "product"
+                ? "รีวิวสินค้า"
+                : "รีวิวร้านค้าและบริการ";
+
+            details.append(name, type);
+
+            const date = document.createElement("span");
+            date.className = "review-date";
+            date.textContent = review.date;
+
+            top.append(details, date);
+
+            const rating = document.createElement("div");
+            rating.className = "review-card-stars";
+            rating.textContent =
+                "★".repeat(review.rating) +
+                "☆".repeat(5 - review.rating);
+            rating.setAttribute(
+                "aria-label",
+                `คะแนน ${review.rating} จาก 5`
+            );
+
+            const comment = document.createElement("p");
+            comment.className = "review-card-text";
+            comment.textContent = review.text;
+
+            card.append(top, rating, comment);
+            list.appendChild(card);
+        });
+    }
+
+    submitButton.addEventListener("click", () => {
+        const name = document.getElementById("reviewName")
+            .value.trim();
+        const type = document.getElementById("reviewType").value;
+        const comment = document.getElementById("reviewText")
+            .value.trim();
+
+        if (!name || !comment) {
+            message.textContent = "กรุณากรอกชื่อและความคิดเห็นก่อนส่งครับ";
+            return;
+        }
+
+        if (!selectedRating) {
+            message.textContent = "กรุณาเลือกคะแนนดาว 1–5 ดวงก่อนส่งครับ";
+            return;
+        }
+
+        const review = {
+            name: name.slice(0, 60),
+            type: type === "product" ? "product" : "shop",
+            rating: selectedRating,
+            text: comment.slice(0, 2000),
+            date: new Date().toLocaleDateString("th-TH")
+        };
+
+        reviews.push(review);
+
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(reviews));
+        } catch {
+            reviews.pop();
+            message.textContent =
+                "บันทึกรีวิวไม่สำเร็จ พื้นที่จัดเก็บของเบราว์เซอร์อาจเต็ม";
+            return;
+        }
+
+        renderReviews();
+
+        document.getElementById("reviewName").value = "";
+        document.getElementById("reviewText").value = "";
+        document.getElementById("reviewPhoto").value = "";
+        selectedRating = 0;
+        updateStars();
+
+        message.textContent = "ส่งรีวิวและบันทึกในเบราว์เซอร์นี้แล้ว ขอบคุณครับ 🎣";
+    });
+
+    updateStars();
+    renderReviews();
+})();
+
 </body>
 </html>
